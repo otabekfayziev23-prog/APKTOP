@@ -28,9 +28,10 @@ jobs:
 
       - name: Setup Android
         uses: android-actions/setup-android@v3
-
-      - name: Install Android SDK
-        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+- name: Install Android SDK
+  run: |
+    yes | sdkmanager --licenses || true
+    sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
       - name: Create Android project
         run: |
